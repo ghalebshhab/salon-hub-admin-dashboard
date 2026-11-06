@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f2f4;
+  --foreground: #2d2329;
+  --primary: #9d5770;
+  --primary-dark: #6c4658;
+  --muted: #76656e;
+  --border: rgba(109, 68, 84, .18);
+}
+
+* { box-sizing: border-box; }
+html { background: var(--background); }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+.admin-foundation {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(157, 87, 112, .15), transparent 30%),
+    radial-gradient(circle at 88% 92%, rgba(215, 168, 110, .16), transparent 32%),
+    var(--background);
+}
+
+.admin-foundation-card {
+  width: min(1040px, 100%);
+  padding: clamp(28px, 5vw, 64px);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: rgba(255, 252, 253, .9);
+  box-shadow: 0 35px 90px rgba(68, 42, 53, .13);
+  backdrop-filter: blur(18px);
+}
+
+.admin-brand { display: flex; align-items: center; gap: 13px; }
+.admin-logo-mark { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; color: white; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); font-size: .78rem; font-weight: 950; }
+.admin-brand span, .admin-brand strong { display: block; }
+.admin-brand span { font-size: 1.05rem; font-weight: 900; }
+.admin-brand strong { margin-top: 2px; color: var(--primary); font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; }
+.admin-copy { max-width: 780px; margin: clamp(48px, 8vw, 84px) 0 38px; }
+.admin-eyebrow { display: inline-flex; align-items: center; gap: 7px; color: var(--primary); font-size: .7rem; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+.admin-copy h1 { margin: 15px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.6rem, 7vw, 5.7rem); font-weight: 500; line-height: .94; letter-spacing: -.055em; }
+.admin-copy p { max-width: 680px; margin: 0; color: var(--muted); font-size: 1rem; font-weight: 600; line-height: 1.8; }
+.admin-module-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.admin-module-grid article { display: flex; align-items: center; gap: 10px; padding: 17px; border: 1px solid var(--border); border-radius: 16px; background: #fff; color: var(--primary-dark); font-size: .78rem; font-weight: 850; }
+.admin-next-step { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 15px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+.admin-next-step span { color: var(--primary); font-size: .66rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.admin-next-step strong { font-size: .82rem; }
+.admin-next-step svg { color: var(--primary); }
+
+@media (max-width: 760px) {
+  .admin-foundation { padding: 16px; }
+  .admin-foundation-card { border-radius: 22px; }
+  .admin-module-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 460px) {
+  .admin-module-grid { grid-template-columns: 1fr; }
+  .admin-next-step { grid-template-columns: 1fr auto; }
+  .admin-next-step span { grid-column: 1 / -1; }
+}

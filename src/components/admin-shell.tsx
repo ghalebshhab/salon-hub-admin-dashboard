@@ -1,14 +1,19 @@
 "use client";
 
-import { BarChart3, LayoutDashboard, LogOut, Menu, Store, UsersRound, X } from "lucide-react";
+import { Activity, BarChart3, LayoutDashboard, LogOut, Menu, Store, UsersRound, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { type ReactNode, useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { DashboardBackdrop } from "@/components/dashboard-backdrop";
+import { DashboardThemePicker } from "@/components/dashboard-theme-picker";
 
 const navigation = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
   { href: "/salons", label: "Salons", icon: Store },
   { href: "/users", label: "Users", icon: UsersRound },
+  { href: "/analytics", label: "Analytics", icon: BarChart3 },
+  { href: "/activity", label: "User Activity", icon: Activity },
 ];
 
 export function AdminShell({ children }: { children: ReactNode }) {
@@ -26,6 +31,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="admin-shell">
+      <DashboardBackdrop />
       {open && <button className="admin-backdrop" aria-label="Close navigation" onClick={() => setOpen(false)} />}
       <aside className={`admin-sidebar ${open ? "is-open" : ""}`}>
         <div className="admin-logo">
@@ -43,11 +49,8 @@ export function AdminShell({ children }: { children: ReactNode }) {
               </Link>
             );
           })}
-          <p className="admin-nav-label admin-nav-label-spaced">Insights</p>
-          <div className="admin-nav-item is-disabled" title="Requires future backend analytics endpoints">
-            <BarChart3 size={17} /><span>Analytics</span><b>Soon</b>
-          </div>
         </nav>
+        <DashboardThemePicker />
         <button className="admin-signout" onClick={signOut} disabled={signingOut}>
           <LogOut size={16} /><span>{signingOut ? "Signing out…" : "Sign out"}</span>
         </button>
@@ -56,9 +59,10 @@ export function AdminShell({ children }: { children: ReactNode }) {
       <main className="admin-main">
         <header className="admin-topbar">
           <button className="admin-menu-button" aria-label="Open navigation" onClick={() => setOpen(true)}><Menu size={20} /></button>
-          <div className="admin-breadcrumb"><span>SalonHub</span><i>/</i><strong>{navigation.find((item) => item.href === pathname)?.label ?? "Administration"}</strong></div>
+          <div className="admin-breadcrumb"><span>SalonHub</span><i>/</i><strong>{navigation.find((item) => item.href === "/" ? pathname === "/" : pathname.startsWith(item.href))?.label ?? "Administration"}</strong></div>
           <div className="admin-top-actions">
-            <div className="admin-top-avatar">AD</div>
+            <ThemeToggle />
+            <Link className="admin-top-avatar" href="/profile" aria-label="Open admin profile" title="Admin profile">AD</Link>
           </div>
         </header>
         {children}

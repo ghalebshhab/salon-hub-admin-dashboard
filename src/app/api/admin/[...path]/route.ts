@@ -2,10 +2,16 @@ import { cookies } from "next/headers";
 import { ADMIN_COOKIE, BACKEND_API_URL, jsonResponse, readBackendResponse } from "@/lib/backend";
 
 const allowedRoutes = [
+  { method: "GET", pattern: /^analytics$/ },
+  { method: "GET", pattern: /^activity$/ },
+  { method: "GET", pattern: /^profile$/ },
   { method: "GET", pattern: /^salons\/(requested|all|active)$/ },
+  { method: "GET", pattern: /^salons\/\d+$/ },
+  { method: "GET", pattern: /^salons\/\d+\/team$/ },
   { method: "POST", pattern: /^salons\/requested\/(accept|reject)$/ },
   { method: "POST", pattern: /^salons\/\d+\/(block|unblock)$/ },
   { method: "GET", pattern: /^users\/(all|active|blocked)$/ },
+  { method: "GET", pattern: /^users\/\d+$/ },
   { method: "POST", pattern: /^users\/\d+\/(block|unblock)$/ },
 ];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Activity, BarChart3, LayoutDashboard, LogOut, Menu, Store, UsersRound, X } from "lucide-react";
+import { Activity, BarChart3, LayoutDashboard, LogOut, Menu, ShieldAlert, Store, UsersRound, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { type ReactNode, useState } from "react";
@@ -12,6 +12,7 @@ const navigation = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
   { href: "/salons", label: "Salons", icon: Store },
   { href: "/users", label: "Users", icon: UsersRound },
+  { href: "/reports", label: "Reports", icon: ShieldAlert },
   { href: "/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/activity", label: "User Activity", icon: Activity },
 ];

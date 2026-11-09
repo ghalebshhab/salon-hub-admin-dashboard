@@ -143,3 +143,20 @@ export type UserActivityDashboard = {
   generatedAt: string;
   users: UserActivity[];
 };
+
+export type ReportTargetType = "POST" | "COMMENT" | "SALON" | "USER";
+export type ReportStatus = "OPEN" | "RESOLVED" | "DISMISSED";
+export type ModerationReport = {
+  id: number;
+  reporter: { id: number; userName: string | null; displayName: string | null };
+  targetType: ReportTargetType;
+  targetId: number;
+  targetLabel: string;
+  reason: string;
+  details: string | null;
+  status: ReportStatus;
+  adminNote: string | null;
+  reviewedBy: { id: number; userName: string | null; displayName: string | null } | null;
+  createdAt: string;
+  reviewedAt: string | null;
+};

@@ -5,6 +5,8 @@ const allowedRoutes = [
   { method: "GET", pattern: /^analytics$/ },
   { method: "GET", pattern: /^activity$/ },
   { method: "GET", pattern: /^profile$/ },
+  { method: "GET", pattern: /^reports$/ },
+  { method: "PUT", pattern: /^reports\/\d+$/ },
   { method: "GET", pattern: /^salons\/(requested|all|active)$/ },
   { method: "GET", pattern: /^salons\/\d+$/ },
   { method: "GET", pattern: /^salons\/\d+\/team$/ },
@@ -49,3 +51,4 @@ async function proxy(request: Request, context: { params: Promise<{ path: string
 
 export const GET = proxy;
 export const POST = proxy;
+export const PUT = proxy;

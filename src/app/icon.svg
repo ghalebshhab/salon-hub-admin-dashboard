@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">SalonHub</title>
+  <desc id="desc">A comb whose teeth radiate from a single hub</desc>
+  <rect width="64" height="64" rx="15" fill="#76546F"/>
+  <g transform="translate(32 32) scale(0.74) translate(-32 -31.5)" fill="none" stroke="#FAF7F4" stroke-linecap="round">
+    <path d="M14 46a18 18 0 0 1 36 0" stroke-width="6"/>
+    <path d="M11.33 38.48L2.87 35.4M19.38 27.98L14.22 20.61M32 24V15M44.62 27.98L49.78 20.61M52.67 38.48L61.13 35.4" stroke-width="5"/>
+    <circle cx="32" cy="46" r="4.5" fill="#D7A86E" stroke="none"/>
+  </g>
+</svg>

@@ -7,6 +7,7 @@ import { type ReactNode, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { DashboardBackdrop } from "@/components/dashboard-backdrop";
 import { DashboardThemePicker } from "@/components/dashboard-theme-picker";
+import { BrandMark } from "@/components/brand-mark";
 
 const navigation = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
@@ -36,7 +37,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
       {open && <button className="admin-backdrop" aria-label="Close navigation" onClick={() => setOpen(false)} />}
       <aside className={`admin-sidebar ${open ? "is-open" : ""}`}>
         <div className="admin-logo">
-          <span>SH</span>
+          <span><BrandMark /></span>
           <div><strong>SalonHub</strong><small>Administration</small></div>
           <button className="admin-sidebar-close" aria-label="Close navigation" onClick={() => setOpen(false)}><X size={18} /></button>
         </div>

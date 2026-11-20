@@ -370,3 +370,20 @@ a.admin-top-avatar { text-decoration: none; transition: transform .22s ease,box-
 [data-theme="dark"] .admin-report-summary > div,[data-theme="dark"] .admin-report-card { border-color: var(--line); background: rgba(17,24,39,.9); }[data-theme="dark"] .admin-report-icon { color: #fda4af; background: #451c29; }
 @media (max-width: 850px) { .admin-report-card { grid-template-columns: auto 1fr; }.admin-report-actions { grid-column: 2; justify-content: start; max-width: none; } }
 @media (max-width: 600px) { .admin-report-summary { grid-template-columns: 1fr; }.admin-report-card { grid-template-columns: 1fr; }.admin-report-actions { grid-column: auto; }.admin-report-icon { width: 36px; height: 36px; } }
+
+/* Salon plans page */
+.admin-plan-badge { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 20px; color: var(--muted); background: #eee7ea; font-size: .58rem; font-weight: 850; }
+.admin-plan-badge.plan-pro { color: var(--plum-dark); background: var(--rose); }
+.admin-plan-badge.plan-business { color: #fff; background: var(--plum); }
+.admin-muted-note { color: var(--muted); font-size: .58rem; font-weight: 650; }
+.admin-plan-facts { display: grid; gap: 8px; margin: 14px 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; }
+.admin-plan-facts div { display: flex; justify-content: space-between; gap: 14px; font-size: .7rem; }
+.admin-plan-facts dt { color: var(--muted); }
+.admin-plan-facts dd { margin: 0; color: var(--ink); font-weight: 800; text-align: right; overflow-wrap: anywhere; }
+.admin-modal p.admin-plan-hint { margin: 12px 0 0; padding: 10px 12px; border-radius: 9px; color: var(--plum-dark); background: var(--rose); font-size: .66rem; }
+.admin-modal-input { width: 100%; min-height: 40px; padding: 0 12px; border: 1px solid #ddcbd2; border-radius: 9px; color: var(--ink); background: #fff; font: inherit; font-size: .72rem; outline: none; }
+.admin-modal-input:focus { border-color: var(--plum); box-shadow: 0 0 0 3px rgba(79,70,229,.14); }
+[data-theme="dark"] .admin-modal-input { color: var(--ink); border-color: var(--line); background: #111827; }
+[data-theme="dark"] .admin-plan-badge { background: #263449; }
+[data-theme="dark"] .admin-modal p.admin-plan-hint { color: #c7d2fe; background: rgba(79,70,229,.16); }
+@media (max-width: 640px) { .admin-report-summary { grid-template-columns: 1fr; } }

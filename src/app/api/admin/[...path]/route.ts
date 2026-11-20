@@ -15,6 +15,9 @@ const allowedRoutes = [
   { method: "GET", pattern: /^users\/(all|active|blocked)$/ },
   { method: "GET", pattern: /^users\/\d+$/ },
   { method: "POST", pattern: /^users\/\d+\/(block|unblock)$/ },
+  { method: "GET", pattern: /^subscriptions\/(requests|requests\/history|salons)$/ },
+  { method: "POST", pattern: /^subscriptions\/requests\/\d+\/(confirm|reject)$/ },
+  { method: "POST", pattern: /^subscriptions\/salons\/\d+\/(grant|plan)$/ },
 ];
 
 async function proxy(request: Request, context: { params: Promise<{ path: string[] }> }) {

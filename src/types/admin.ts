@@ -160,3 +160,47 @@ export type ModerationReport = {
   createdAt: string;
   reviewedAt: string | null;
 };
+
+export type PlanCode = "FREE" | "PRO" | "BUSINESS";
+export type BillingCycle = "MONTHLY" | "YEARLY";
+export type SubscriptionStatus = "TRIAL" | "ACTIVE" | "GRACE" | "ENDED";
+export type PlanPaymentStatus = "PENDING" | "CONFIRMED" | "REJECTED" | "CANCELLED";
+export type PlanPaymentMethod = "CLIQ" | "CASH" | "COMPLIMENTARY";
+
+export type PlanRequest = {
+  id: number;
+  plan: PlanCode;
+  billingCycle: BillingCycle;
+  amountFils: number;
+  currency: string;
+  method: PlanPaymentMethod;
+  reference: string | null;
+  status: PlanPaymentStatus;
+  rejectionReason: string | null;
+  createdAt: string;
+  reviewedAt: string | null;
+  periodEnd: string | null;
+};
+
+export type AdminPlanRequest = {
+  salonId: number;
+  salonName: string;
+  ownerName: string;
+  ownerEmail: string | null;
+  ownerPhone: string | null;
+  currentPlan: PlanCode;
+  request: PlanRequest;
+};
+
+export type AdminSalonPlan = {
+  salonId: number;
+  salonName: string;
+  ownerName: string;
+  plan: PlanCode;
+  subscribedPlan: PlanCode;
+  status: SubscriptionStatus;
+  billingCycle: BillingCycle | null;
+  accessEndsAt: string | null;
+  daysLeft: number | null;
+  openRequest: boolean;
+};

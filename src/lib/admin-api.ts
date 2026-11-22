@@ -37,3 +37,8 @@ export async function adminRequest<T>(path: string, init: RequestInit = {}): Pro
 export function errorMessage(error: unknown): string {
   return error instanceof Error ? error.message : "Something went wrong. Please try again.";
 }
+
+/** Ends the admin session. Sign-out must always finish, so a network error is ignored. */
+export async function endAdminSession(): Promise<void> {
+  await fetch("/api/admin/logout", { method: "POST", cache: "no-store" }).catch(() => undefined);
+}

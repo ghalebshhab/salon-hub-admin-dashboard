@@ -8,6 +8,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { DashboardBackdrop } from "@/components/dashboard-backdrop";
 import { DashboardThemePicker } from "@/components/dashboard-theme-picker";
 import { BrandMark } from "@/components/brand-mark";
+import { endAdminSession } from "@/lib/admin-api";
 
 const navigation = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
@@ -27,7 +28,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
 
   async function signOut() {
     setSigningOut(true);
-    await fetch("/api/admin/logout", { method: "POST" }).catch(() => undefined);
+    await endAdminSession();
     router.replace("/login");
     router.refresh();
   }

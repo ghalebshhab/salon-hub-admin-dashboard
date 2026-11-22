@@ -26,5 +26,6 @@ export const sessionCookie = {
   sameSite: "strict" as const,
   secure: process.env.NODE_ENV === "production",
   path: "/",
-  maxAge: 60 * 60 * 24,
+  // Matches the backend admin session (salon.auth.admin-ttl, 8 hours).
+  maxAge: 60 * 60 * 8,
 };

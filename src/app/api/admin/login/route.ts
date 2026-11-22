@@ -20,7 +20,8 @@ export async function POST(request: Request) {
     if (response.ok && payload.success && payload.data?.token) {
       (await cookies()).set(ADMIN_COOKIE, payload.data.token, sessionCookie);
     }
-    return jsonResponse(payload, response.status);
+    // The token stays on this server in the httpOnly cookie; the browser never receives it.
+    return jsonResponse({ ...payload, data: null }, response.status);
   } catch {
     return jsonResponse({ success: false, message: "Cannot connect to the SalonHub backend. Confirm it is running and try again.", data: null }, 503);
   }

@@ -387,3 +387,6 @@ a.admin-top-avatar { text-decoration: none; transition: transform .22s ease,box-
 [data-theme="dark"] .admin-plan-badge { background: #263449; }
 [data-theme="dark"] .admin-modal p.admin-plan-hint { color: #c7d2fe; background: rgba(79,70,229,.16); }
 @media (max-width: 640px) { .admin-report-summary { grid-template-columns: 1fr; } }
+
+/* Keyboard focus: one visible ring for every control. Inputs keep their own focus style. */
+:where(a, button, select, summary, [tabindex]):focus-visible { outline: 2px solid var(--plum); outline-offset: 2px; }

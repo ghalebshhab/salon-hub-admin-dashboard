@@ -2,6 +2,8 @@
 
 Dedicated administration workspace for the SalonHub platform. This repository is intentionally separate from the customer and salon-owner frontend.
 
+**Version 1.0.0 is live:** https://salonhub-admin-three.vercel.app
+
 ## Stack
 
 - Next.js 16 App Router
@@ -11,22 +13,49 @@ Dedicated administration workspace for the SalonHub platform. This repository is
 - Lucide icons
 - Responsive design tokens and accessible components
 
+## Modules
+
+- Administrator sign-in (`/login`), checked by the backend on every page
+- Overview, analytics and activity
+- Salons and salon details
+- Users and person details
+- Subscriptions
+- Reports
+- Administrator profile
+
+## How it talks to the API
+
+The browser never calls the backend directly. Pages call this app's own `/api/admin/*` route handlers, and those call the backend at `BACKEND_API_URL` on the server. The administrator session is an httpOnly cookie set by this app, so the backend needs no CORS entry for the dashboard.
+
 ## Local setup
 
 ```bash
-npm install
+npm ci
 copy .env.example .env.local
 npm run dev
 ```
 
-`NEXT_PUBLIC_API_BASE_URL` points to `http://localhost:8081/api` locally. The API client and endpoint integration will be added after the v0 interface is approved.
+`.env.local` sets `BACKEND_API_URL=http://127.0.0.1:8081`, the backend's local port.
 
-## Planned modules
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Local development server |
+| `npm run lint` | ESLint with no warnings allowed |
+| `npm run typecheck` | TypeScript check |
+| `npm run build` | Production build |
+| `npm run check` | Lint, type check and build |
 
-- Secure administrator authentication
-- Platform overview and operational statistics
-- Salon approval, rejection, resubmission, blocking, and restoration
-- User administration and account blocking
-- Platform activity, moderation, audit history, and reports
+GitHub Actions runs lint, type check and build on every push.
 
-The v0-generated interface will be reviewed before backend endpoints are connected.
+## Production
+
+The dashboard runs on Vercel (project `salonhub-admin`). Every push to `main` deploys automatically. The only setting is `BACKEND_API_URL=https://salon-hub-backend.onrender.com`.
+
+To sign in, an account needs the administrator role (`role = 2` in the `user` table).
+
+## Related repositories
+
+- Backend: [Salon-hub-backend](https://github.com/ghalebshhab/Salon-hub-backend)
+- Website: [Salon-hub-frontend](https://github.com/ghalebshhab/Salon-hub-frontend), live at https://salon-community-frontend.vercel.app
+
+Version 1.0.0 was released on 23 November 2026. Each release is a Git tag (`v1.0.0`) with a GitHub release.

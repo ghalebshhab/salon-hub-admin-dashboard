@@ -2,7 +2,7 @@
 
 Dedicated administration workspace for the SalonHub platform. This repository is intentionally separate from the customer and salon-owner frontend.
 
-**Version 1.0.0 is live:** https://salonhub-admin-three.vercel.app
+**Version 1.1.0 is live:** https://salonhub-admin-three.vercel.app
 
 ## Stack
 
@@ -58,4 +58,4 @@ To sign in, an account needs the administrator role (`role = 2` in the `user` ta
 - Backend: [Salon-hub-backend](https://github.com/ghalebshhab/Salon-hub-backend)
 - Website: [Salon-hub-frontend](https://github.com/ghalebshhab/Salon-hub-frontend), live at https://salon-community-frontend.vercel.app
 
-Version 1.0.0 was released on 23 November 2026. Each release is a Git tag (`v1.0.0`) with a GitHub release.
+Version 1.1.0 was released on 24 November 2026 (version 1.0.0 on 23 November 2026). Each release is a Git tag (`v1.1.0`) with a GitHub release.
